@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ART</title>
+    <title>Zdjęcia z powiększaniem po kliknięciu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -32,18 +32,58 @@
         .gallery .item:hover {
             transform: scale(1.05);
         }
+        .gallery button {
+            margin-top: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: black;
+            background-color: transparent; /* Przezroczyste tło */
+            border: 2px solid black; /* Czarna obwódka */
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .gallery button:hover {
+            background-color: lightgrey; /* Opcjonalne: lekko szare tło po najechaniu */
+        }
     </style>
 </head>
 <body>
     <img src="https://github.com/0-skar/0/blob/main/art.png?raw=true" width="400" height="200">
     <div class="gallery">
-        <div class="item"><img src="https://github.com/0-skar/1/blob/main/bart.jpg?raw=true" onclick="openModal(this.src)"></div>
-        <div class="item"><img src="https://github.com/0-skar/1/blob/main/shuh.jpg?raw=true" onclick="openModal(this.src)"></div>
-        <div class="item"><img src="https://github.com/0-skar/1/blob/main/dude.jpg?raw=true" onclick="openModal(this.src)"></div>
-        <div class="item"><img src="https://github.com/0-skar/1/blob/main/melties.png?raw=true" onclick="openModal(this.src)"></div>
-        <div class="item"><img src="https://github.com/0-skar/1/blob/main/lol.jpg?raw=true" onclick="openModal(this.src)"></div>
-        <div class="item"><img src="https://github.com/0-skar/1/blob/main/christmas.jpg?raw=true?raw=true" onclick="openModal(this.src)"></div>
-   </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/bart.jpg?raw=true" onclick="openModal(this.src)">
+            <a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/shuh.jpg?raw=true" onclick="openModal(this.src)">
+            <a href="https://przyklad2.com" target="_blank"></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/barthat.png?raw=true" onclick="openModal(this.src)">
+            <a href="https://przyklad3.com" target="_blank"></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/melties.png?raw=true" onclick="openModal(this.src)">
+            <a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/lol.jpg?raw=true" onclick="openModal(this.src)">
+            <a href="https://www.kidartshow.com/work/lol"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/dude.jpg?raw=true" onclick="openModal(this.src)">
+            <a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"</button></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/christmas.jpg?raw=true" onclick="openModal(this.src)">
+            <a href="https://przyklad7.com" target="_blank"></a>
+        </div>
+        <div class="item">
+            <img src="https://github.com/0-skar/1/blob/main/then&now.jpg?raw=true" onclick="openModal(this.src)">
+            <a href="https://przyklad8.com" target="_blank"></a>
+        </div>
+    </div>
 
     <div id="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.8);">
         <span onclick="closeModal()" style="position:absolute; top:10px; right:25px; color:white; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
