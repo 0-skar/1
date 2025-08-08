@@ -25,21 +25,21 @@
             box-sizing: border-box;
             padding: 10px;
             border: 1px solid #ccc;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease-in-out;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            will-change: transform; /* Optymalizacja animacji */
         }
         .gallery .item:hover {
             transform: scale(1.05);
         }
+        /* PRZYWRÓCONY ORYGINALNY WYGLĄD ZDJĘĆ */
         .gallery .item img {
             max-width: 100%;
             height: auto;
             cursor: pointer;
-            aspect-ratio: 1 / 1; /* Rezerwuje miejsce, zapobiega skakaniu layoutu */
-            object-fit: cover; /* Gwarantuje, że obraz wypełni przestrzeń bez zniekształceń */
+            margin-bottom: 10px;
         }
         .gallery .item .buttons-wrapper {
             width: 100%;
@@ -48,13 +48,21 @@
             align-items: flex-end;
             margin-top: auto;
         }
+        /* PRZYWRÓCONY ORYGINALNY WYGLĄD PRZYCISKÓW */
         .gallery button {
-            padding: 0;
+            padding: 8px 12px;
+            font-size: 12px;
             background-color: transparent;
-            border: none;
+            border: 2px solid black;
+            border-radius: 5px;
             cursor: pointer;
+            text-decoration: none;
         }
-        /* Przycisk "+" przeniesiony do góry */
+        .gallery a button { /* Specjalny styl dla przycisków z logo, które nie mają własnego tła */
+             border: none;
+             padding: 0;
+        }
+        /* ZACHOWANY PRZYCISK "+" W PRAWYM GÓRNYM ROGU */
         #openUploadModalBtn {
             position: fixed;
             top: 20px;
@@ -70,29 +78,17 @@
             line-height: 48px;
             text-align: center;
             cursor: pointer;
-            z-index: 1002; /* Wyżej niż inne elementy */
+            z-index: 1002;
         }
-        /* --- Style dla Modali (bez zmian, ale uporządkowane) --- */
-        .modal {
-            display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            margin: auto; display: block; width: 80%; max-width: 700px; position: relative; top: 50%; transform: translateY(-50%);
-        }
-        .close-btn {
-            position:absolute; top:15px; right:35px; color:white; font-size:40px; font-weight:bold; cursor:pointer; transition: color 0.3s;
-        }
+        /* --- Style dla Modali --- */
+        .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 700px; position: relative; top: 50%; transform: translateY(-50%); }
+        .close-btn { position:absolute; top:15px; right:35px; color:white; font-size:40px; font-weight:bold; cursor:pointer; transition: color 0.3s; }
         .close-btn:hover { color: #bbb; }
-        .upload-modal-content {
-            background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; border-radius: 10px; text-align: left; position: relative;
-        }
+        .upload-modal-content { background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; border-radius: 10px; text-align: left; position: relative; }
         #uploadForm label { display: block; margin-bottom: 5px; font-weight: bold; }
-        #uploadForm input[type="password"], #uploadForm input[type="file"] {
-            width: 100%; box-sizing: border-box; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;
-        }
-        #uploadForm button {
-            width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;
-        }
+        #uploadForm input[type="password"], #uploadForm input[type="file"] { width: 100%; box-sizing: border-box; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        #uploadForm button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: 2px solid #007bff; border-radius: 5px; cursor: pointer; font-size: 16px; }
         #uploadForm button:hover { background-color: #0056b3; }
         #uploadStatus { margin-top: 15px; font-weight: bold; text-align: center; }
     </style>
@@ -104,7 +100,6 @@
     <img src="https://raw.githubusercontent.com/0-skar/1/main/oskart2.jpg" alt="Oskar T" width="400" height="200" style="margin-top: 20px; max-width: 90%;">
 
     <div class="gallery">
-        <!-- ZAKTUALIZOWANE ADRESY URL I DODANE loading="lazy" -->
         <div class="item">
             <img src="https://raw.githubusercontent.com/0-skar/1/main/bart.jpg" loading="lazy" onclick="openImageModal(this.src)">
             <div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" loading="lazy" width="100" height="50"></button></a></div>
@@ -152,6 +147,7 @@
     </div>
 
     <script>
+        // --- CAŁY KOD JAVASCRIPT JEST JUŻ POPRAWNY I ZOSTaje BEZ ZMIAN ---
         const imageModal = document.getElementById('imageModal');
         const uploadModal = document.getElementById('uploadModal');
         const uploadForm = document.getElementById('uploadForm');
@@ -167,7 +163,6 @@
             if (event.target == imageModal) closeImageModal();
         }
 
-        // --- GŁÓWNA ZMIANA: Dodawanie obrazka bez przeładowania strony ---
         function addImageToGallery(imageUrl) {
             const gallery = document.querySelector('.gallery');
             const newItem = document.createElement('div');
@@ -175,11 +170,11 @@
             
             const newImg = document.createElement('img');
             newImg.src = imageUrl;
-            newImg.loading = 'lazy'; // Nowe obrazy też dostają lazy loading
+            newImg.loading = 'lazy';
             newImg.onclick = () => openImageModal(imageUrl);
 
             newItem.appendChild(newImg);
-            gallery.prepend(newItem); // Dodaje nowy obraz na początku galerii
+            gallery.prepend(newItem);
         }
 
         uploadForm.addEventListener('submit', async function(event) {
@@ -199,8 +194,8 @@
                 if (response.ok) {
                     uploadStatus.textContent = 'Sukces! Obraz dodany.';
                     uploadStatus.style.color = 'green';
-                    addImageToGallery(result.image_url); // Dynamiczne dodanie obrazka
-                    setTimeout(closeUploadModal, 1500); // Zamknij modal po chwili
+                    addImageToGallery(result.image_url);
+                    setTimeout(closeUploadModal, 1500);
                 } else {
                     uploadStatus.textContent = 'Błąd: ' + (result.error || 'Nieznany błąd serwera.');
                     uploadStatus.style.color = 'red';
@@ -210,7 +205,7 @@
                 uploadStatus.textContent = 'Błąd: Nie można połączyć się z serwerem.';
                 uploadStatus.style.color = 'red';
             } finally {
-                submitButton.disabled = false; // Włącz przycisk z powrotem
+                submitButton.disabled = false;
             }
         });
     </script>
