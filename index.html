@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ART</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+<title>ART</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
         body {
             background-color: white;
             color: black;
@@ -156,92 +156,85 @@
     </style>
 </head>
 <body>
-    <a href="https://0-skar.github.io/0/" style="position: fixed; top: 10px; left: 10px; z-index: 1001;">
-        <img src="https://raw.githubusercontent.com/0-skar/1/refs/heads/main/black%20arr.png" alt="Home" width="40" height="40" style="border: 2px solid black; border-radius: 50%;">
-    </a>
-    <img src="https://github.com/0-skar/1/blob/main/oskart2.jpg?raw=true" width="400" height="200" style="margin-top: 20px;">
-
-    <!-- ======================= GALERIA (Twoje istniejące obrazy) ======================= -->
-    <div class="gallery">
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/bart.jpg?raw=true" onclick="openImageModal(this.src)">
-            <div class="buttons-wrapper">
-                <a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
-            </div>
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/shuh.jpg?raw=true" onclick="openImageModal(this.src)">
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/barthat.png?raw=true" onclick="openImageModal(this.src)">
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/melties.png?raw=true" onclick="openImageModal(this.src)">
-            <div class="buttons-wrapper">
-                <a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
-            </div>
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/lol.jpg?raw=true" onclick="openImageModal(this.src)">
-            <div class="buttons-wrapper">
-                <a href="https://www.kidartshow.com/work/lol" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
-            </div>
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/dude.jpg?raw=true" onclick="openImageModal(this.src)">
-            <div class="buttons-wrapper">
-                <a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
-            </div>
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/christmas.jpg?raw=true" onclick="openImageModal(this.src)">
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/then&now.jpg?raw=true" onclick="openImageModal(this.src)">
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/chickgun2.jpg?raw=true" onclick="openImageModal(this.src)">
-       </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/gangsta%20kitty.jpg?raw=true" onclick="openImageModal(this.src)">
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/CLOwn.png?raw=true" onclick="openImageModal(this.src)">
-        </div>
-        <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/night%20city.jpg?raw=true" onclick="openImageModal(this.src)">
-        </div>
-    </div>
-    <!-- ======================= KONIEC GALERII ======================= -->
-
-    <!-- Modal do powiększania obrazów -->
-    <div id="imageModal" class="modal">
-        <span class="close-btn" onclick="closeImageModal()">&times;</span>
-        <img id="modalImg" class="modal-content">
-    </div>
-
-    <!-- Pływający przycisk "Plus" do dodawania zdjęć -->
-    <div id="openUploadModalBtn" onclick="openUploadModal()">+</div>
-
-    <!-- Modal do przesyłania plików -->
-    <div id="uploadModal" class="modal">
-        <div class="upload-modal-content">
-            <span class="close-btn" onclick="closeUploadModal()">&times;</span>
-            <h2>Dodaj nowy obraz do galerii</h2>
-            <form id="uploadForm">
-                <label for="uploadCode">Kod dostępu:</label>
-                <input type="password" id="uploadCode" name="code" required>
-
-                <label for="imageFile">Wybierz obraz:</label>
-                <input type="file" id="imageFile" name="image" accept="image/jpeg, image/png, image/gif, image/jpg" required>
-
-                <button type="submit">Wyślij obraz</button>
-            </form>
-            <div id="uploadStatus"></div>
-        </div>
-    </div>
-
-    <script>
+<a href="https://0-skar.github.io/0/" style="position: fixed; top: 10px; left: 10px; z-index: 1001;">
+<img alt="Home" height="40" src="https://raw.githubusercontent.com/0-skar/1/refs/heads/main/black%20arr.png" style="border: 2px solid black; border-radius: 50%;" width="40"/>
+</a>
+<img height="200" src="https://github.com/0-skar/1/blob/main/oskart2.jpg?raw=true" style="margin-top: 20px;" width="400"/>
+<!-- ======================= GALERIA (Twoje istniejące obrazy) ======================= -->
+<div class="gallery">
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/bart.jpg?raw=true"/>
+<div class="buttons-wrapper">
+<a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img height="50" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a>
+</div>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/shuh.jpg?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/barthat.png?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/melties.png?raw=true"/>
+<div class="buttons-wrapper">
+<a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img height="50" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a>
+</div>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/lol.jpg?raw=true"/>
+<div class="buttons-wrapper">
+<a href="https://www.kidartshow.com/work/lol" target="_blank"><button><img height="50" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a>
+</div>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/dude.jpg?raw=true"/>
+<div class="buttons-wrapper">
+<a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img height="50" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a>
+</div>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/christmas.jpg?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/then&amp;now.jpg?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/chickgun2.jpg?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/gangsta%20kitty.jpg?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/CLOwn.png?raw=true"/>
+</div>
+<div class="item">
+<img onclick="openImageModal(this.src)" src="https://github.com/0-skar/1/blob/main/night%20city.jpg?raw=true"/>
+</div>
+<div class="item"><img onclick="openModal('https://raw.githubusercontent.com/0-skar/1/main/images/cf79f31e-6d8e-4dc5-9c94-abdc55780f82.jpg')" src="https://raw.githubusercontent.com/0-skar/1/main/images/cf79f31e-6d8e-4dc5-9c94-abdc55780f82.jpg"/><a href="#" target="_blank"></a></div></div>
+<!-- ======================= KONIEC GALERII ======================= -->
+<!-- Modal do powiększania obrazów -->
+<div class="modal" id="imageModal">
+<span class="close-btn" onclick="closeImageModal()">×</span>
+<img class="modal-content" id="modalImg"/>
+</div>
+<!-- Pływający przycisk "Plus" do dodawania zdjęć -->
+<div id="openUploadModalBtn" onclick="openUploadModal()">+</div>
+<!-- Modal do przesyłania plików -->
+<div class="modal" id="uploadModal">
+<div class="upload-modal-content">
+<span class="close-btn" onclick="closeUploadModal()">×</span>
+<h2>Dodaj nowy obraz do galerii</h2>
+<form id="uploadForm">
+<label for="uploadCode">Kod dostępu:</label>
+<input id="uploadCode" name="code" required="" type="password"/>
+<label for="imageFile">Wybierz obraz:</label>
+<input accept="image/jpeg, image/png, image/gif, image/jpg" id="imageFile" name="image" required="" type="file"/>
+<button type="submit">Wyślij obraz</button>
+</form>
+<div id="uploadStatus"></div>
+</div>
+</div>
+<script>
         // --- Skrypt dla modala z obrazem ---
         function openImageModal(src) {
             document.getElementById('imageModal').style.display = 'block';
