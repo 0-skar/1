@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<title>ART</title>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<style>
+    <title>ART</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
         body { background-color: white; color: black; font-family: Arial, sans-serif; text-align: center; }
         .gallery { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
         .gallery .item { flex: 1 1 calc(33.333% - 20px); min-width: 280px; margin: 10px; position: relative; box-sizing: border-box; padding: 10px; border: 1px solid #ccc; transition: transform 0.2s ease-in-out; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
@@ -33,81 +33,86 @@
     </style>
 </head>
 <body>
-<a href="https://0-skar.github.io/0/" style="position: fixed; top: 20px; left: 20px; z-index: 1001;"><img alt="Home" height="50" src="https://raw.githubusercontent.com/0-skar/1/main/black%20arr.png" style="border-radius: 50%;" width="50"/></a>
-<img alt="Oskar T" height="200" src="https://raw.githubusercontent.com/0-skar/1/main/oskart2.jpg" style="margin-top: 20px; max-width: 90%;" width="400"/>
-<div class="gallery"><html><body><div class="item"><span class="delete-btn" onclick='deleteImage(this, "https://raw.githubusercontent.com/0-skar/1/main/images/f50c1592-5e08-4c9e-a10a-1edd345c75e8.png")'>×</span><img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/images/f50c1592-5e08-4c9e-a10a-1edd345c75e8.png"/></div></body></html>
-<!-- Wszystkie istniejące elementy z dodanym przyciskiem usuwania -->
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/bart.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/bart.jpg"/>
-<div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img height="50" loading="lazy" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a></div>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/shuh.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/shuh.jpg"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/barthat.png')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/barthat.png"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/melties.png')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/melties.png"/>
-<div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img height="50" loading="lazy" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a></div>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/lol.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/lol.jpg"/>
-<div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/lol" target="_blank"><button><img height="50" loading="lazy" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a></div>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/dude.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/dude.jpg"/>
-<div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img height="50" loading="lazy" src="https://www.kidartshow.com/images/logo_blue.png" width="100"/></button></a></div>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/christmas.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/christmas.jpg"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/then&amp;now.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/then&amp;now.jpg"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/chickgun2.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/chickgun2.jpg"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/gangsta%20kitty.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/gangsta%20kitty.jpg"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/CLOwn.png')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/CLOwn.png"/>
-</div>
-<div class="item">
-<span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/night%20city.jpg')">×</span>
-<img loading="lazy" onclick="openImageModal(this.src)" src="https://raw.githubusercontent.com/0-skar/1/main/night%20city.jpg"/>
-</div>
-</div>
-<!-- Modal do powiększania obrazów -->
-<div class="modal" id="imageModal"><span class="close-btn" onclick="closeImageModal()">×</span><img class="modal-content" id="modalImg"/></div>
-<!-- Pływający przycisk "+" -->
-<div id="openUploadModalBtn" onclick="openUploadModal()">+</div>
-<!-- Modal do przesyłania plików -->
-<div class="modal" id="uploadModal">
-<div class="upload-modal-content">
-<span class="close-btn" onclick="closeUploadModal()">×</span>
-<h2>Dodaj nowy obraz do galerii</h2>
-<form id="uploadForm">
-<label for="uploadCode">Kod dostępu:</label><input id="uploadCode" name="code" required="" type="password"/>
-<label for="imageFile">Wybierz obraz:</label><input accept="image/jpeg, image/png, image/gif, image/jpg" id="imageFile" name="image" required="" type="file"/>
-<button type="submit">Wyślij obraz</button>
-</form>
-<div id="uploadStatus"></div>
-</div>
-</div>
-<script>
+    <a href="https://0-skar.github.io/0/" style="position: fixed; top: 20px; left: 20px; z-index: 1001;"><img src="https://raw.githubusercontent.com/0-skar/1/main/black%20arr.png" alt="Home" width="50" height="50" style="border-radius: 50%;"></a>
+    <img src="https://raw.githubusercontent.com/0-skar/1/main/oskart2.jpg" alt="Oskar T" width="400" height="200" style="margin-top: 20px; max-width: 90%;">
+    
+    <div class="gallery">
+        <!-- Wszystkie istniejące elementy z dodanym przyciskiem usuwania -->
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/bart.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/bart.jpg" loading="lazy" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" loading="lazy" width="100" height="50"></button></a></div>
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/shuh.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/shuh.jpg" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/barthat.png')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/barthat.png" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/melties.png')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/melties.png" loading="lazy" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" loading="lazy" width="100" height="50"></button></a></div>
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/lol.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/lol.jpg" loading="lazy" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/lol" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" loading="lazy" width="100" height="50"></button></a></div>
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/dude.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/dude.jpg" loading="lazy" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper"><a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" loading="lazy" width="100" height="50"></button></a></div>
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/christmas.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/christmas.jpg" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/then&now.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/then&now.jpg" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/chickgun2.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/chickgun2.jpg" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/gangsta%20kitty.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/gangsta%20kitty.jpg" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/CLOwn.png')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/CLOwn.png" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+        <div class="item">
+            <span class="delete-btn" onclick="deleteImage(this, 'https://raw.githubusercontent.com/0-skar/1/main/night%20city.jpg')">&times;</span>
+            <img src="https://raw.githubusercontent.com/0-skar/1/main/night%20city.jpg" loading="lazy" onclick="openImageModal(this.src)">
+        </div>
+    </div>
+
+    <!-- Modal do powiększania obrazów -->
+    <div id="imageModal" class="modal"><span class="close-btn" onclick="closeImageModal()">&times;</span><img id="modalImg" class="modal-content"></div>
+
+    <!-- Pływający przycisk "+" -->
+    <div id="openUploadModalBtn" onclick="openUploadModal()">+</div>
+
+    <!-- Modal do przesyłania plików -->
+    <div id="uploadModal" class="modal">
+        <div class="upload-modal-content">
+            <span class="close-btn" onclick="closeUploadModal()">&times;</span>
+            <h2>Dodaj nowy obraz do galerii</h2>
+            <form id="uploadForm">
+                <label for="uploadCode">Kod dostępu:</label><input type="password" id="uploadCode" name="code" required>
+                <label for="imageFile">Wybierz obraz:</label><input type="file" id="imageFile" name="image" accept="image/jpeg, image/png, image/gif, image/jpg" required>
+                <button type="submit">Wyślij obraz</button>
+            </form>
+            <div id="uploadStatus"></div>
+        </div>
+    </div>
+
+    <script>
         const imageModal = document.getElementById('imageModal');
         const uploadModal = document.getElementById('uploadModal');
         const uploadForm = document.getElementById('uploadForm');
@@ -183,10 +188,11 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    uploadStatus.textContent = 'Sukces! Obraz dodany.';
+                    // ZMIANA JEST TUTAJ
+                    uploadStatus.textContent = 'Sukces! Aktualizacja strony może potrwać minutę.';
                     uploadStatus.style.color = 'green';
                     addImageToGallery(result.image_url);
-                    setTimeout(closeUploadModal, 1500);
+                    setTimeout(closeUploadModal, 2500); // Dłuższy czas na przeczytanie komunikatu
                 } else {
                     uploadStatus.textContent = 'Błąd: ' + (result.error || 'Nieznany błąd serwera.');
                     uploadStatus.style.color = 'red';
