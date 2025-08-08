@@ -109,6 +109,7 @@
             font-weight: bold;
         }
         #uploadForm input[type="text"],
+        #uploadForm input[type="password"],
         #uploadForm input[type="file"] {
             width: 100%;
             box-sizing: border-box;
@@ -213,7 +214,6 @@
     </div>
     <!-- ======================= KONIEC GALERII ======================= -->
 
-
     <!-- Modal do powiększania obrazów -->
     <div id="imageModal" class="modal">
         <span class="close-btn" onclick="closeImageModal()">&times;</span>
@@ -279,16 +279,9 @@
         uploadForm.addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            // ⬇️⬇️⬇️ WAŻNE! ZMIEŃ TEN ADRES URL ⬇️⬇️⬇️
-            // Zastąp go adresem URL Twojej aplikacji na Hugging Face.
-            // Znajdziesz go w prawym górnym rogu Twojego Space'u.
+            // Adres URL Twojego backendu na Hugging Face
             const backendUrl = 'https://eosforus-gallery.hf.space/upload';
             
-            if (backendUrl.includes('https://eosforus-gallery.hf.space')) {
-                alert('BŁĄD KRYTYCZNY: Musisz zaktualizować adres URL backendu w pliku index.html!');
-                return;
-            }
-
             const formData = new FormData(uploadForm);
             
             uploadStatus.textContent = 'Przesyłanie, proszę czekać...';
