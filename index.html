@@ -15,154 +15,309 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            padding: 20px;
         }
- .gallery .item {
-    flex: 1 1 calc(33.333% - 10px);
-    margin: 5px;
-    position: relative;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #ccc;
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Utrzymuje miejsce między obrazem a przyciskami */
-    align-items: center;
-}
-
-.gallery .item img {
-    max-width: 100%;
-    height: auto;
-    cursor: pointer;
-    align-self: center; /* Utrzymuje obraz w środku */
-    margin-bottom: auto; /* Wypycha obraz do góry */
-}
-
-.gallery .item .buttons-wrapper {
-    width: 100%; /* Upewnia się, że przyciski zajmują pełną szerokość */
-    display: flex;
-    justify-content: space-between; /* Równomiernie rozkłada przyciski */
-    gap: 5px; /* Opcjonalnie: dodaje przestrzeń między przyciskami */
-    align-items: flex-end; /* Wypycha przyciski na dół */
-}
-
-.gallery button {
-    padding: 8px 12px;
-    font-size: 12px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 0;
-}
-
-
-
-.gallery button {
-    padding: 5px 10px;
-    font-size: 12px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 0; /* Usuń margines */
-}
-        .gallery img {
+        .gallery .item {
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 280px;
+            margin: 10px;
+            position: relative;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ccc;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gallery .item img {
             max-width: 100%;
             height: auto;
             cursor: pointer;
+            align-self: center;
+            margin-bottom: 10px;
+        }
+        .gallery .item .buttons-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            margin-top: auto; /* Wypycha przyciski na dół */
+        }
+        .gallery button {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .gallery button img {
+            display: block;
         }
         .gallery .item:hover {
             transform: scale(1.05);
         }
-        .gallery button {
-            padding: 5px 10px; /* Zmniejszenie rozmiaru przycisków */
-            font-size: 12px; /* Zmniejszenie rozmiaru czcionki */
-            color: black;
-            background-color: transparent;
-            border: 2px solid black;
+
+        /* --- STYLE DLA MODALI I PRZYCISKÓW --- */
+        .modal {
+            display:none;
+            position:fixed;
+            z-index:1000;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            overflow:auto;
+            background-color:rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .close-btn {
+            position:absolute;
+            top:15px;
+            right:35px;
+            color:white;
+            font-size:40px;
+            font-weight:bold;
+            cursor:pointer;
+            transition: color 0.3s;
+        }
+        .close-btn:hover {
+            color: #bbb;
+        }
+        .upload-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: left;
+            position: relative;
+        }
+        #uploadForm label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        #uploadForm input[type="text"],
+        #uploadForm input[type="file"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #uploadForm button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
-            margin-top: 5px; /* Dodanie odstępu między przyciskami */
+            font-size: 16px;
         }
-        .gallery button:hover {
-            background-color: lightgrey;
+        #uploadForm button:hover {
+            background-color: #0056b3;
+        }
+        #openUploadModalBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            font-size: 36px;
+            line-height: 56px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        #uploadStatus {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <a href="https://0-skar.github.io/0/" style="position: fixed; top: 10px; left: 10px; z-index: 1001;">
-    <img src="https://raw.githubusercontent.com/0-skar/1/refs/heads/main/black%20arr.png" alt="Home" width="40" height="40" style="border: 2px solid black; border-radius: 50%;">
+        <img src="https://raw.githubusercontent.com/0-skar/1/refs/heads/main/black%20arr.png" alt="Home" width="40" height="40" style="border: 2px solid black; border-radius: 50%;">
     </a>
-    <img src="https://github.com/0-skar/1/blob/main/oskart2.jpg?raw=true" width="400" height="200">
+    <img src="https://github.com/0-skar/1/blob/main/oskart2.jpg?raw=true" width="400" height="200" style="margin-top: 20px;">
+
+    <!-- ======================= GALERIA (Twoje istniejące obrazy) ======================= -->
     <div class="gallery">
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/bart.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
-            <a href="https://www.example.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/bart.jpg?raw=true" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper">
+                <a href="https://www.kidartshow.com/work/zombie-bart" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            </div>
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/shuh.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad2.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/shuh.jpg?raw=true" onclick="openImageModal(this.src)">
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/barthat.png?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad3.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/barthat.png?raw=true" onclick="openImageModal(this.src)">
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/melties.png?raw=true" onclick="openModal(this.src)">
-            <a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            <img src="https://github.com/0-skar/1/blob/main/melties.png?raw=true" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper">
+                <a href="https://www.kidartshow.com/work/melties" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            </div>
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/lol.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://www.kidartshow.com/work/lol" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            <img src="https://github.com/0-skar/1/blob/main/lol.jpg?raw=true" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper">
+                <a href="https://www.kidartshow.com/work/lol" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            </div>
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/dude.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            <img src="https://github.com/0-skar/1/blob/main/dude.jpg?raw=true" onclick="openImageModal(this.src)">
+            <div class="buttons-wrapper">
+                <a href="https://www.kidartshow.com/work/dude-1" target="_blank"><button><img src="https://www.kidartshow.com/images/logo_blue.png" width="100" height="50"></button></a>
+            </div>
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/christmas.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad7.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/christmas.jpg?raw=true" onclick="openImageModal(this.src)">
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/then&now.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad8.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/then&now.jpg?raw=true" onclick="openImageModal(this.src)">
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/chickgun2.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad8.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/chickgun2.jpg?raw=true" onclick="openImageModal(this.src)">
        </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/gangsta%20kitty.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad8.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/gangsta%20kitty.jpg?raw=true" onclick="openImageModal(this.src)">
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/CLOwn.png?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad8.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/CLOwn.png?raw=true" onclick="openImageModal(this.src)">
         </div>
         <div class="item">
-            <img src="https://github.com/0-skar/1/blob/main/night%20city.jpg?raw=true" onclick="openModal(this.src)">
-            <a href="https://przyklad8.com" target="_blank"></a>
+            <img src="https://github.com/0-skar/1/blob/main/night%20city.jpg?raw=true" onclick="openImageModal(this.src)">
+        </div>
+    </div>
+    <!-- ======================= KONIEC GALERII ======================= -->
+
+
+    <!-- Modal do powiększania obrazów -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeImageModal()">&times;</span>
+        <img id="modalImg" class="modal-content">
     </div>
 
-    <div id="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.8);">
-        <span onclick="closeModal()" style="position:absolute; top:10px; right:25px; color:white; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
-        <img id="modalImg" style="margin:auto; display:block; width:80%; max-width:700px;">
+    <!-- Pływający przycisk "Plus" do dodawania zdjęć -->
+    <div id="openUploadModalBtn" onclick="openUploadModal()">+</div>
+
+    <!-- Modal do przesyłania plików -->
+    <div id="uploadModal" class="modal">
+        <div class="upload-modal-content">
+            <span class="close-btn" onclick="closeUploadModal()">&times;</span>
+            <h2>Dodaj nowy obraz do galerii</h2>
+            <form id="uploadForm">
+                <label for="uploadCode">Kod dostępu:</label>
+                <input type="password" id="uploadCode" name="code" required>
+
+                <label for="imageFile">Wybierz obraz:</label>
+                <input type="file" id="imageFile" name="image" accept="image/jpeg, image/png, image/gif, image/jpg" required>
+
+                <button type="submit">Wyślij obraz</button>
+            </form>
+            <div id="uploadStatus"></div>
+        </div>
     </div>
 
     <script>
-        function openModal(src) {
-            document.getElementById('modal').style.display = 'block';
+        // --- Skrypt dla modala z obrazem ---
+        function openImageModal(src) {
+            document.getElementById('imageModal').style.display = 'block';
             document.getElementById('modalImg').src = src;
         }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
         }
+
+        // --- Skrypt do obsługi przesyłania plików ---
+        const uploadModal = document.getElementById('uploadModal');
+        const uploadForm = document.getElementById('uploadForm');
+        const uploadStatus = document.getElementById('uploadStatus');
+        
+        function openUploadModal() {
+            uploadModal.style.display = 'block';
+        }
+
+        function closeUploadModal() {
+            uploadModal.style.display = 'none';
+            uploadStatus.textContent = '';
+            uploadForm.reset();
+        }
+
+        window.onclick = function(event) {
+            if (event.target == uploadModal) {
+                closeUploadModal();
+            }
+            if (event.target == document.getElementById('imageModal')) {
+                closeImageModal();
+            }
+        }
+
+        uploadForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // ⬇️⬇️⬇️ WAŻNE! ZMIEŃ TEN ADRES URL ⬇️⬇️⬇️
+            // Zastąp go adresem URL Twojej aplikacji na Hugging Face.
+            // Znajdziesz go w prawym górnym rogu Twojego Space'u.
+            const backendUrl = 'https://eosforus-gallery.hf.space/upload';
+            
+            if (backendUrl.includes('https://eosforus-gallery.hf.space')) {
+                alert('BŁĄD KRYTYCZNY: Musisz zaktualizować adres URL backendu w pliku index.html!');
+                return;
+            }
+
+            const formData = new FormData(uploadForm);
+            
+            uploadStatus.textContent = 'Przesyłanie, proszę czekać...';
+            uploadStatus.style.color = 'black';
+            
+            try {
+                const response = await fetch(backendUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    uploadStatus.textContent = 'Sukces! Obraz dodany. Strona zaraz się odświeży.';
+                    uploadStatus.style.color = 'green';
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2500);
+                } else {
+                    uploadStatus.textContent = 'Błąd: ' + (result.error || 'Nieznany błąd serwera.');
+                    uploadStatus.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Błąd sieci:', error);
+                uploadStatus.textContent = 'Błąd: Nie można połączyć się z serwerem. Sprawdź konsolę (F12).';
+                uploadStatus.style.color = 'red';
+            }
+        });
     </script>
 </body>
 </html>
